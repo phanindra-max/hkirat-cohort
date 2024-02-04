@@ -14,6 +14,24 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  // Your code goes here
+  if (transactions.length > 0) {
+    // get all the categories from the array of objects
+    const categories = transactions.map((transaction) => transaction.category);
+    // create a new array of categories without repetitions using the Set function
+    const uniqueCategories = [...new Set(categories)];
+    // for each category in the new array find and sum the price and return the result directly without storing in mutltiple variables
+    const result = uniqueCategories.map((category) => {
+      const totalSpent = transactions.reduce((acc, transaction) => {
+        if (transaction.category === category) {
+          return acc + transaction.price;
+        }
+        return acc;
+      }, 0);
+      return { category, totalSpent };
+    });
+    return result;
+  }
   return [];
 }
 
