@@ -13,11 +13,13 @@ function isAnagram(str1, str2) {
     return true;
   }
   // sort the strings and compare if they are equal
-  const str1Arr = str1.toLowerCase().split('').sort();
-  const str2Arr = str2.toLowerCase().split('').sort();
-  
+  const str1Arr = str1.split('').sort();
+  const str2Arr = str2.split('').sort();
+  console.log(str1Arr, str2Arr)
+
   for (let i = 0; i < str1Arr.length; i++) {
-    if (str1Arr[i] !== str2Arr[i]) {
+    console.log(str1Arr[i].toLowerCase(), str2Arr[i].toLowerCase())
+    if (str1Arr[i].toLowerCase() !== str2Arr[i].toLowerCase()) {
       return false;
     }
   }
