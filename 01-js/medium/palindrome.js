@@ -4,7 +4,13 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str_array = str.replace(/[\s~`!@#$%^&*(){}\[\];:"'<,.>?\/\\|_+=-]/g,"").replace(/\s/g, '').toLowerCase().split('')
+  str_reverse = JSON.parse(JSON.stringify(str_array))
+  str_reverse.reverse()
+  if (JSON.stringify(str_array) == JSON.stringify(str_reverse)) return true
+  else return false
 }
+
+console.log(isPalindrome("Alas, sala"))
 
 module.exports = isPalindrome;
